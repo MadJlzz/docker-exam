@@ -15,6 +15,7 @@ func RegisterRoutes(todoSvc *TodoService) http.Handler {
 	r.Use(middleware.Logger)
 
 	r.Get("/api/v1/todos/{author}", ListAuthorTodos(todoSvc))
+	r.Post("/api/v1/todo", InsertTodo(todoSvc))
 
 	return r
 }
