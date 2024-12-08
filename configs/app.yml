@@ -1,0 +1,6 @@
+logger:
+  log_level: debug
+  log_file: app.log
+
+server:
+  hostname: :8080
