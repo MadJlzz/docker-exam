@@ -113,3 +113,6 @@ fabric.properties
 # User defined ignores
 *.log
 .tool-versions
+Dockerfile
+compose.yml
+docker-compose.yml

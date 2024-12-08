@@ -8,8 +8,9 @@ import (
 const defaultConfigPath = "configs/app.yml"
 
 type AppConfiguration struct {
-	Logger LoggerConfiguration `yaml:"logger"`
-	Server ServerConfiguration `yaml:"server"`
+	Logger   LoggerConfiguration   `yaml:"logger"`
+	Server   ServerConfiguration   `yaml:"server"`
+	Database DatabaseConfiguration `yaml:"db"`
 }
 
 func NewAppConfiguration() *AppConfiguration {
@@ -20,12 +21,16 @@ func NewAppConfiguration() *AppConfiguration {
 		filepath = defaultConfigPath
 	}
 
-	f, err := os.Open(filepath)
+	b, err := os.ReadFile(filepath)
 	if err != nil {
 		panic(err)
 	}
 
-	err = yaml.NewDecoder(f).Decode(&cfg)
+	// we expand environment variable if used in the file to avoid passing
+	// secrets in clear.
+	expCfg := os.ExpandEnv(string(b))
+
+	err = yaml.Unmarshal([]byte(expCfg), &cfg)
 	if err != nil {
 		panic(err)
 	}
