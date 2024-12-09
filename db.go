@@ -17,6 +17,10 @@ type DatabaseConfiguration struct {
 	Extras   string `yaml:"extras"`
 }
 
+func (dc *DatabaseConfiguration) SafeDsn() string {
+	return fmt.Sprintf("postgres://%s:[REDACTED]@%s:%s/%s?%s", dc.Username, dc.Host, dc.Port, dc.Database, dc.Extras)
+}
+
 func NewDatabase(cfg DatabaseConfiguration) *bun.DB {
 	dsn := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?%s", cfg.Username, cfg.Password, cfg.Host, cfg.Port, cfg.Database, cfg.Extras)
 	//dsn := "postgres://postgres:@localhost:5432/test?sslmode=disable"

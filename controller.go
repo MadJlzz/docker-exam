@@ -15,16 +15,24 @@ type TodoRequest struct {
 type TodoResponse struct {
 }
 
-func ListAuthorTodos(todoSvc *TodoService) http.HandlerFunc {
+type TodoController struct {
+	ts *TodoService
+}
+
+func NewTodoController(ts *TodoService) *TodoController {
+	return &TodoController{ts: ts}
+}
+
+func (tc *TodoController) ListAuthorTodos() http.HandlerFunc {
 	// probably doing something here to pass the db manager
 	return func(w http.ResponseWriter, r *http.Request) {
 		author := chi.URLParam(r, "author")
-		todos := todoSvc.ListTodosFrom(r.Context(), author)
+		todos := tc.ts.ListTodosFrom(r.Context(), author)
 		fmt.Fprintln(w, todos)
 	}
 }
 
-func InsertTodo(todoSvc *TodoService) http.HandlerFunc {
+func (tc *TodoController) InsertTodo() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		var tr TodoRequest
 
@@ -35,6 +43,6 @@ func InsertTodo(todoSvc *TodoService) http.HandlerFunc {
 		defer r.Body.Close()
 
 		t := NewTodo(tr.Author, tr.Text)
-		todoSvc.InsertTodo(r.Context(), t)
+		tc.ts.InsertTodo(r.Context(), t)
 	}
 }

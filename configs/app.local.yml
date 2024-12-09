@@ -1,0 +1,14 @@
+logger:
+  log_level: debug
+  log_file: app.log
+
+server:
+  hostname: :8080
+
+db:
+  host: localhost
+  port: 5432
+  database: todos
+  username: app
+  password: notsosecret
+  extras: "sslmode=disable"
