@@ -1,4 +1,4 @@
-package main
+package backend
 
 import (
 	"gopkg.in/yaml.v3"

@@ -1,3 +1,3 @@
-package main
+package backend
 
 const DevelopmentEnvironment = "dev"

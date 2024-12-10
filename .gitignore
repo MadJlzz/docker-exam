@@ -113,9 +113,9 @@ fabric.properties
 # User defined ignores
 *.log
 *.env
-configs/app.yml
+backend/configs/app.yml
 Dockerfile
-backend.Dockerfile
+backend/backend.Dockerfile
 frontend.Dockerfile
 compose.yml
-docker-compose.yml
+backend/docker-compose.yml
