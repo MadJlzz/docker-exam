@@ -1,0 +1,27 @@
+name: exam
+
+services:
+
+  init-db:
+    build:
+      context: backend
+      dockerfile: migrations.Dockerfile
+    environment:
+      GOOSE_DRIVER: "postgres"
+      GOOSE_DBSTRING: "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOSTNAME}:${POSTGRES_PORT}/${POSTGRES_DB}?sslmode=disable"
+    command:
+      - up
+    restart: on-failure
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    # this tells docker compose when a service is 'healthy'
+    # we use this to tell the init-db service to start only when the database is ready...
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s

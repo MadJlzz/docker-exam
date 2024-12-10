@@ -113,6 +113,7 @@ fabric.properties
 # User defined ignores
 *.log
 *.env
+compose.final.yml
 backend/configs/app.yml
 backend/Dockerfile
 backend/backend.Dockerfile
