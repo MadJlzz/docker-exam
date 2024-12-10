@@ -1,3 +1,3 @@
 package main
 
-const DevelopmentEnvironment = "dev"
+const LocalEnvironment = "local"

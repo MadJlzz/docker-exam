@@ -23,7 +23,7 @@ func NewLogger(lc LoggerConfiguration) *zap.SugaredLogger {
 	var config zap.Config
 
 	env := os.Getenv("APP_ENVIRONMENT")
-	if env == DevelopmentEnvironment {
+	if env == LocalEnvironment {
 		encoder = zap.NewDevelopmentEncoderConfig()
 		config = zap.NewDevelopmentConfig()
 	} else {
