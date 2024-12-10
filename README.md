@@ -62,6 +62,7 @@ Here's a small ordered list to help you in your adventure:
   - [ ] the application should read its configuration file from `/app/config.yml`
   - [ ] mount its configuration file to `/app/config.yml`
   - [ ] we want to be able to fetch the application logs from your machine
+  - [ ] isolate traffic using container networks
 
 Small reminders/hints for building the golang app:
 - use the image `golang:1.23` to have access to go building tools
