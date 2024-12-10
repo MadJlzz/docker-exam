@@ -73,5 +73,5 @@ Small reminder about Docker compose:
 
 <details>
   <summary>Good luck</summary>
-  ![good luck](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnNqZDV1Y2M4ZDh4a3l0dmozeDlsd2xzdmJ1d3VyMHF0dGRvY2JvZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oeSAz6FqXCKuNFX6o/giphy.webp)
+  ![good luck gif](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnNqZDV1Y2M4ZDh4a3l0dmozeDlsd2xzdmJ1d3VyMHF0dGRvY2JvZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oeSAz6FqXCKuNFX6o/giphy.gif)
 </details>
