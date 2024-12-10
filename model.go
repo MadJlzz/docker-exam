@@ -37,9 +37,9 @@ func NewTodoService(db *bun.DB, logger *zap.SugaredLogger) *TodoService {
 	}
 }
 
-func (ts *TodoService) ListTodosFrom(ctx context.Context, author string) []Todo {
+func (ts *TodoService) ListTodos(ctx context.Context) []Todo {
 	var todos []Todo
-	err := ts.db.NewSelect().Model(&todos).Where("author = ?", author).Scan(ctx)
+	err := ts.db.NewSelect().Model(&todos).Scan(ctx)
 	if err != nil {
 		panic(err)
 	}

@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/go-chi/chi/v5"
 	"net/http"
 )
 
@@ -23,11 +22,9 @@ func NewTodoController(ts *TodoService) *TodoController {
 	return &TodoController{ts: ts}
 }
 
-func (tc *TodoController) ListAuthorTodos() http.HandlerFunc {
-	// probably doing something here to pass the db manager
+func (tc *TodoController) ListTodos() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		author := chi.URLParam(r, "author")
-		todos := tc.ts.ListTodosFrom(r.Context(), author)
+		todos := tc.ts.ListTodos(r.Context())
 		fmt.Fprintln(w, todos)
 	}
 }

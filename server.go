@@ -28,7 +28,7 @@ func NewServer(l *zap.SugaredLogger, tc *TodoController) *Server {
 	r.Route("/api/v1", func(r chi.Router) {
 		r.Use(requestLoggerMiddleware(l))
 		r.Route("/todos", func(r chi.Router) {
-			r.Get("/{author}", tc.ListAuthorTodos())
+			r.Get("/", tc.ListTodos())
 			r.Post("/", tc.InsertTodo())
 		})
 	})
