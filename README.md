@@ -36,7 +36,7 @@ Along with that configuration file, the application use environment variables to
 | Variable name           | Description                                                                                                                                          |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | APP_ENVIRONMENT         | Defines if the logger should be configured for production or local development. If the value is "local" logs will be formatted to be human readable. |
-| APP_CONFIGURATION_FILE  | Filepath to the application configuration file. If not set, the application will look for it's config in `$(pwd)/configs/app.yml`                    |
+| APP_CONFIGURATION_FILE  | Filepath to the application configuration file. If not set, the application will look for it's config in `./configs/app.yml`                    |
 
 ## database
 
